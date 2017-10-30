@@ -1,0 +1,700 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     31989,        692]
+NotebookOptionsPosition[     30296,        653]
+NotebookOutlinePosition[     30636,        668]
+CellTagsIndexPosition[     30593,        665]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Explore Atomic Radius", "Title",
+ CellChangeTimes->{{3.6859628986559706`*^9, 
+  3.6859629038027916`*^9}},ExpressionUUID->"22a75b91-ede4-4b5c-abfb-\
+20880e3e6ec6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Grid", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"BarChart3D", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Reverse", "/@", 
+           RowBox[{"data", "[", "\"\<AtomicRadius\>\"", "]"}]}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Method", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"\"\<Canvas\>\"", "\[Rule]", "None"}], "}"}]}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"FaceGrids", "\[Rule]", "None"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"ChartLayout", "\[Rule]", "\"\<Grid\>\""}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"ChartElementFunction", "\[Rule]", "\"\<Cube\>\""}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"ViewAngle", "\[Rule]", 
+           RowBox[{"Pi", "/", "4"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"ViewPoint", "\[Rule]", 
+           RowBox[{"Dynamic", "[", "vp", "]"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"ImageSize", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"600", ",", "350"}], "}"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"AxesEdge", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"None", ",", "None", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", 
+               RowBox[{"-", "1"}]}], "}"}]}], "}"}]}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"PerformanceGoal", "\[Rule]", "\"\<Quality\>\""}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"AxesLabel", "->", "Automatic"}]}], "\[IndentingNewLine]", 
+         "]"}], ",", 
+        RowBox[{"Grid", "[", 
+         RowBox[{"(*", 
+          RowBox[{"By", " ", "Group"}], "*)"}], "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"DiscretePlot", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"List", "@@", 
+                 RowBox[{"ElementData", "[", 
+                  RowBox[{"num", ",", "\"\<AtomicRadius\>\""}], "]"}]}], 
+                ")"}], "[", 
+               RowBox[{"[", "1", "]"}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"num", ",", 
+                RowBox[{"Join", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"ElementData", "[", 
+                    RowBox[{"#", ",", "\"\<AtomicNumber\>\""}], "]"}], "&"}], 
+                   "/@", 
+                   RowBox[{"Select", "[", 
+                    RowBox[{
+                    RowBox[{"ElementData", "[", "]"}], ",", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"ElementData", "[", 
+                    RowBox[{"#", ",", "\"\<Period\>\""}], "]"}], "\[Equal]", 
+                    RowBox[{"ElementData", "[", 
+                    RowBox[{"elem", ",", "\"\<Period\>\""}], "]"}]}], "&&", 
+                    RowBox[{"!", 
+                    RowBox[{"MatchQ", "[", 
+                    RowBox[{
+                    RowBox[{"ElementData", "[", 
+                    RowBox[{"#", ",", "\"\<Period\>\""}], "]"}], ",", 
+                    RowBox[{"Missing", "[", "___", "]"}]}], "]"}]}]}], 
+                    "&"}]}], "]"}]}], ",", "\[IndentingNewLine]", 
+                  RowBox[{"{", 
+                   RowBox[{"ElementData", "[", 
+                    RowBox[{"elem", ",", "\"\<AtomicNumber\>\""}], "]"}], 
+                   "}"}]}], "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+              RowBox[{"ImageSize", "\[Rule]", "Medium"}], ",", 
+              RowBox[{"PlotLabel", "\[Rule]", 
+               RowBox[{
+               "\"\<Atomic Radius of elements across the period of \>\"", "<>", 
+                RowBox[{"ElementData", "[", 
+                 RowBox[{"elem", ",", "\"\<Name\>\""}], "]"}]}]}], ",", 
+              RowBox[{"AxesLabel", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{
+                "\"\<Atomic Number\>\"", ",", "\"\<Atomic Radius (pm)\>\""}], 
+                "}"}]}]}], "]"}], "}"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"(*", 
+            RowBox[{"By", " ", "Period"}], "*)"}], "\[IndentingNewLine]", 
+           RowBox[{"{", 
+            RowBox[{"DiscretePlot", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"List", "@@", 
+                 RowBox[{"ElementData", "[", 
+                  RowBox[{"num", ",", "\"\<AtomicRadius\>\""}], "]"}]}], 
+                ")"}], "[", 
+               RowBox[{"[", "1", "]"}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"num", ",", 
+                RowBox[{"Join", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"ElementData", "[", 
+                    RowBox[{"#", ",", "\"\<AtomicNumber\>\""}], "]"}], "&"}], 
+                   "/@", 
+                   RowBox[{"Select", "[", 
+                    RowBox[{
+                    RowBox[{"ElementData", "[", "]"}], ",", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"ElementData", "[", 
+                    RowBox[{"#", ",", "\"\<Group\>\""}], "]"}], "\[Equal]", 
+                    RowBox[{"ElementData", "[", 
+                    RowBox[{"elem", ",", "\"\<Group\>\""}], "]"}]}], "&&", 
+                    RowBox[{"!", 
+                    RowBox[{"MatchQ", "[", 
+                    RowBox[{
+                    RowBox[{"ElementData", "[", 
+                    RowBox[{"#", ",", "\"\<Group\>\""}], "]"}], ",", 
+                    RowBox[{"Missing", "[", "___", "]"}]}], "]"}]}]}], 
+                    "&"}]}], "]"}]}], ",", "\[IndentingNewLine]", 
+                  RowBox[{"{", 
+                   RowBox[{"ElementData", "[", 
+                    RowBox[{"elem", ",", "\"\<AtomicNumber\>\""}], "]"}], 
+                   "}"}]}], "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+              RowBox[{"ImageSize", "\[Rule]", "Medium"}], ",", 
+              RowBox[{"PlotLabel", "\[Rule]", 
+               RowBox[{
+               "\"\<Atomic Radius of elements down the group of \>\"", "<>", 
+                RowBox[{"ElementData", "[", 
+                 RowBox[{"elem", ",", "\"\<Name\>\""}], "]"}]}]}], ",", 
+              RowBox[{"AxesLabel", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{
+                "\"\<Atomic Number\>\"", ",", "\"\<Atomic Radius (pm)\>\""}], 
+                "}"}]}]}], "]"}], "}"}]}], "}"}], "]"}]}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"customColorData", ",", 
+        RowBox[{"Grid", "[", 
+         RowBox[{"{", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             RowBox[{
+              RowBox[{"ElementData", "[", 
+               RowBox[{"elem", ",", "\"\<Name\>\""}], "]"}], ",", "48"}], 
+             "]"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"Style", "[", 
+             RowBox[{
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"!", 
+                 RowBox[{"MissingQ", "[", 
+                  RowBox[{"ElementData", "[", 
+                   RowBox[{"elem", ",", "\"\<AtomicRadius\>\""}], "]"}], 
+                  "]"}]}], ",", 
+                RowBox[{"ElementData", "[", 
+                 RowBox[{"elem", ",", "\"\<AtomicRadius\>\""}], "]"}], ",", 
+                "\"\<NA\>\""}], "]"}], ",", "36"}], "]"}]}], "}"}], "}"}], 
+         "]"}]}], "}"}]}], "}"}], "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"SynchronousUpdating", "\[Rule]", "False"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"SynchronousInitialization", "\[Rule]", "False"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Initialization", "\[RuleDelayed]", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"vp", "=", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", 
+         RowBox[{"1", "/", "5"}], ",", "1"}], "}"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"elem", "=", "\"\<H\>\""}], ";", "\[IndentingNewLine]", 
+      RowBox[{"props", "=", 
+       RowBox[{"{", "\"\<AtomicRadius\>\"", "}"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"data", "[", "#", "]"}], "=", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"ColorData", "[", 
+             RowBox[{"\"\<Atoms\>\"", ",", "\"\<Image\>\""}], "]"}], "[", 
+            RowBox[{"[", 
+             RowBox[{"1", ",", "2"}], "]"}], "]"}], "/.", 
+           "\[IndentingNewLine]", 
+           RowBox[{"{", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"color_", ",", 
+                RowBox[{"Rectangle", "[", "__", "]"}], ",", 
+                RowBox[{"Inset", "[", 
+                 RowBox[{
+                  RowBox[{"Style", "[", 
+                   RowBox[{"element_", ",", "__"}], "]"}], ",", "___"}], 
+                 "]"}]}], "}"}], "\[RuleDelayed]", "\[IndentingNewLine]", 
+              RowBox[{"With", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"value", "=", 
+                  RowBox[{"Mean", "[", 
+                   RowBox[{"Flatten", "[", 
+                    RowBox[{"List", "[", 
+                    RowBox[{"ElementData", "[", 
+                    RowBox[{"element", ",", "#"}], "]"}], "]"}], "]"}], 
+                   "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+                RowBox[{"If", "[", 
+                 RowBox[{
+                  RowBox[{"MatchQ", "[", 
+                   RowBox[{"value", ",", 
+                    RowBox[{"Missing", "[", "_", "]"}]}], "]"}], ",", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"Labeled", "[", 
+                   RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{"Tooltip", "[", 
+                    RowBox[{"0", ",", 
+                    RowBox[{"value", "/.", 
+                    RowBox[{
+                    RowBox[{"Missing", "[", "s_", "]"}], "\[Rule]", "s"}]}]}],
+                     "]"}], "]"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"element", ",", "\"\<Label\>\"", ",", "12", ",", 
+                    RowBox[{"Background", "\[Rule]", 
+                    RowBox[{"Opacity", "[", 
+                    RowBox[{".5", ",", "White"}], "]"}]}], ",", "Bold"}], 
+                    "]"}], ",", "\[IndentingNewLine]", "Above"}], 
+                   "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+                  RowBox[{"Labeled", "[", 
+                   RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{"value", ",", "color"}], "]"}], ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{
+                    "element", ",", "\"\<Label\>\"", ",", "12", ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"Background", "\[Rule]", 
+                    RowBox[{"Opacity", "[", 
+                    RowBox[{".5", ",", "White"}], "]"}]}], ",", "Bold"}], 
+                    "]"}], ",", "\[IndentingNewLine]", "Above"}], 
+                   "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+                 "]"}]}], "\[IndentingNewLine]", "]"}]}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"{", "}"}], "\[Rule]", "None"}]}], 
+            "\[IndentingNewLine]", "}"}]}]}], "\[IndentingNewLine]", ")"}], 
+        "&"}], "/@", "props"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"customColorData", "=", 
+       RowBox[{
+        RowBox[{"ColorData", "[", 
+         RowBox[{"\"\<Atoms\>\"", ",", "\"\<Panel\>\""}], "]"}], "/.", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<MouseClicked\>\"", "\[RuleDelayed]", 
+           RowBox[{"NotebookWrite", "[", 
+            RowBox[{
+             RowBox[{"InputNotebook", "[", "]"}], ",", 
+             RowBox[{"ToBoxes", "[", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"e_", "\[Rule]", 
+                 RowBox[{"RGBColor", "[", 
+                  RowBox[{"_", ",", "_", ",", "_"}], "]"}]}], ")"}], "[", 
+               RowBox[{"[", "_", "]"}], "]"}], "]"}]}], "]"}]}], "}"}], 
+         "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"\"\<MouseClicked\>\"", "\[RuleDelayed]", 
+           RowBox[{"(", 
+            RowBox[{"elem", "=", "e"}], ")"}]}], "}"}]}]}]}], ";"}], 
+     "\[IndentingNewLine]", ")"}]}]}], "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{
+  3.35696210375764*^9, 3.4360995576035028`*^9, {3.436101062694997*^9, 
+   3.436101109259653*^9}, {3.436101229171643*^9, 3.436101272437969*^9}, {
+   3.4361013168344083`*^9, 3.436101323962121*^9}, {3.436101475527276*^9, 
+   3.43610148196692*^9}, {3.436101583668089*^9, 3.4361016031730394`*^9}, {
+   3.4361016955322742`*^9, 3.436101703969118*^9}, {3.4361017440301237`*^9, 
+   3.4361018115268726`*^9}, {3.4361018931860375`*^9, 3.43610193551627*^9}, {
+   3.436102068906608*^9, 3.4361020689706144`*^9}, {3.4361021205237694`*^9, 
+   3.436102126051322*^9}, {3.4361024214488583`*^9, 3.4361024889136047`*^9}, {
+   3.4361025998867006`*^9, 3.436102712974008*^9}, {3.4361029931380215`*^9, 
+   3.436103042578965*^9}, {3.4361031697636824`*^9, 3.4361032439230976`*^9}, {
+   3.4361032818068857`*^9, 3.436103437524456*^9}, {3.436105223553041*^9, 
+   3.436105281858871*^9}, {3.4361064784235153`*^9, 3.4361065422588987`*^9}, {
+   3.4361068571033792`*^9, 3.436106888050474*^9}, {3.436106962475916*^9, 
+   3.4361070264303107`*^9}, {3.4361071856552315`*^9, 
+   3.4361071893456006`*^9}, {3.436107268402506*^9, 3.4361073028509502`*^9}, {
+   3.4361073672143855`*^9, 3.4361074224809117`*^9}, {3.436107455714235*^9, 
+   3.4361074816588287`*^9}, {3.4361075442140837`*^9, 3.436107670578719*^9}, {
+   3.436107966968355*^9, 3.4361080152651844`*^9}, {3.4361081214708037`*^9, 
+   3.4361082138280387`*^9}, {3.43610825264592*^9, 3.436108283680023*^9}, {
+   3.4361083569783525`*^9, 3.4361085062252755`*^9}, {3.4361086192785797`*^9, 
+   3.4361086215258045`*^9}, {3.4361087072573767`*^9, 3.436108713634014*^9}, {
+   3.4361220700002317`*^9, 3.4361220749507265`*^9}, {3.4361221062698584`*^9, 
+   3.436122115317763*^9}, {3.4361221496441956`*^9, 3.4361221732425547`*^9}, {
+   3.539704354629957*^9, 3.539704560941988*^9}, {3.685630214161665*^9, 
+   3.6856302154655976`*^9}, 3.685638058983615*^9, {3.6856381475717773`*^9, 
+   3.685638151091731*^9}, {3.6856381919880133`*^9, 3.6856383324532537`*^9}, 
+   3.685638554068579*^9, {3.68563861338128*^9, 3.6856386792343583`*^9}, {
+   3.685638714290412*^9, 3.6856388168465014`*^9}, {3.685638851604063*^9, 
+   3.6856396271421623`*^9}, 3.6856396850366106`*^9, {3.6856397690996523`*^9, 
+   3.6856398381453195`*^9}, {3.6856398923444767`*^9, 3.685639917799145*^9}, {
+   3.6856399578936443`*^9, 3.685639994227705*^9}, {3.685640091968852*^9, 
+   3.685640105734294*^9}, {3.6856402339534984`*^9, 3.6856402348064656`*^9}, {
+   3.685640294807904*^9, 3.6856402988079796`*^9}, {3.6856403558994503`*^9, 
+   3.685640369798312*^9}, {3.685640475753364*^9, 3.6856404814555855`*^9}, {
+   3.6856405657209044`*^9, 3.6856405991564617`*^9}, {3.6856407024717646`*^9, 
+   3.6856407195263295`*^9}, 3.68564080202302*^9, {3.6856408436635923`*^9, 
+   3.6856408710148573`*^9}, {3.685640990559354*^9, 3.6856410047724724`*^9}, {
+   3.6856410472412*^9, 3.685641050950892*^9}, {3.6856411399114127`*^9, 
+   3.685641166579975*^9}, {3.685641201165931*^9, 3.6856412932065086`*^9}, {
+   3.6856413319820147`*^9, 3.6856413832994556`*^9}, {3.6856414142377768`*^9, 
+   3.6856414484680667`*^9}, {3.685641520470187*^9, 3.68564152092451*^9}, {
+   3.685641669063672*^9, 3.685641669971317*^9}, {3.685641815206914*^9, 
+   3.6856418572206993`*^9}, {3.6856420176436653`*^9, 3.685642042787511*^9}, {
+   3.68564505914506*^9, 3.6856450724518404`*^9}, 3.6856451077737036`*^9, {
+   3.6856451400773554`*^9, 3.6856451706030345`*^9}, {3.6857081703649673`*^9, 
+   3.685708237631295*^9}, {3.6857082793192987`*^9, 3.6857083691328897`*^9}, {
+   3.6857084054614725`*^9, 3.685708434961814*^9}, {3.685708568385335*^9, 
+   3.6857086602770452`*^9}, 3.685710730139013*^9, {3.6857107678976946`*^9, 
+   3.6857107976324315`*^9}, {3.6857110907156963`*^9, 3.685711093996991*^9}, {
+   3.68571113760276*^9, 3.685711192556678*^9}, {3.685711291839323*^9, 
+   3.685711394543741*^9}, 3.685796905733553*^9, {3.6857969425187397`*^9, 
+   3.685797017542148*^9}, {3.6857970505596356`*^9, 3.6857971506198645`*^9}, {
+   3.6858197120345907`*^9, 3.685819713360243*^9}, {3.685827836070959*^9, 
+   3.685827836891238*^9}, {3.6858278994652977`*^9, 3.6858279268052588`*^9}, {
+   3.6858279593452177`*^9, 3.685828057343603*^9}, {3.685828089855509*^9, 
+   3.6858281010739837`*^9}, {3.6858281368675113`*^9, 3.685828167591653*^9}, {
+   3.6858282224354134`*^9, 3.6858284020809126`*^9}, {3.6858285064361815`*^9, 
+   3.685828511652913*^9}, {3.6858286041284523`*^9, 3.685828637292226*^9}, {
+   3.6858287657208705`*^9, 3.68582887332695*^9}, {3.685828931983264*^9, 
+   3.685828980540114*^9}, {3.6858290400640774`*^9, 3.685829057175949*^9}, {
+   3.685829087554038*^9, 3.685829099249646*^9}, {3.6858294781617403`*^9, 
+   3.685829587401879*^9}, {3.6858298321316123`*^9, 3.6858298517155313`*^9}, {
+   3.685829886629923*^9, 3.6858298891307983`*^9}, {3.6858299584289956`*^9, 
+   3.6858300364059796`*^9}, {3.6858301124157896`*^9, 3.685830156683961*^9}, {
+   3.685830202928056*^9, 3.685830324024963*^9}, {3.685830382867382*^9, 
+   3.685830387251292*^9}, {3.6858304218911266`*^9, 3.6858304269026766`*^9}, {
+   3.6858304895603194`*^9, 3.685830490664624*^9}, {3.6858305644731016`*^9, 
+   3.685830566811183*^9}, {3.685872274241294*^9, 3.6858722897192926`*^9}, {
+   3.6858724444865537`*^9, 3.6858725146554885`*^9}, {3.6858725458867226`*^9, 
+   3.6858725513866544`*^9}, {3.685885881218229*^9, 3.685885895621579*^9}, {
+   3.6858859288972816`*^9, 3.6858859349988203`*^9}, {3.6858859671882634`*^9, 
+   3.6858859867727985`*^9}, {3.6858862326171203`*^9, 3.685886245008997*^9}, {
+   3.6858862805034895`*^9, 3.685886351027113*^9}, {3.6858863895863237`*^9, 
+   3.685886480348754*^9}, {3.6858865132726803`*^9, 3.6858865299189806`*^9}, {
+   3.6858865676896*^9, 3.685886585176081*^9}, {3.685886652311783*^9, 
+   3.685886661571204*^9}, {3.68588672934408*^9, 3.6858867861056156`*^9}, {
+   3.6858868970879526`*^9, 3.685886921278767*^9}, {3.685886952869748*^9, 
+   3.685886969427088*^9}, {3.685887116353773*^9, 3.685887140948481*^9}, {
+   3.685887231387355*^9, 3.6858872632250032`*^9}, {3.685887343665677*^9, 
+   3.6858873671808205`*^9}, {3.685887419192357*^9, 3.685887421389575*^9}, {
+   3.6858875525743227`*^9, 3.685887584173293*^9}, {3.6858879969460897`*^9, 
+   3.6858880685985966`*^9}, 3.68588810096797*^9, {3.685888134320471*^9, 
+   3.685888243398138*^9}, 3.6858882741508274`*^9, {3.6858883703129263`*^9, 
+   3.685888372990014*^9}, {3.685888408698388*^9, 3.685888427358291*^9}, {
+   3.6858885845816803`*^9, 3.685888655199057*^9}, {3.685888705490222*^9, 
+   3.6858887149455705`*^9}, {3.6859623102420635`*^9, 3.685962312892685*^9}, {
+   3.685962450912255*^9, 3.6859624874727697`*^9}, {3.6859625219088216`*^9, 
+   3.68596255738369*^9}, {3.6859626324419956`*^9, 3.685962678895131*^9}, {
+   3.685962822519108*^9, 3.6859628330728087`*^9}, {3.6859629637855663`*^9, 
+   3.685962967046881*^9}, {3.6859663162539296`*^9, 3.6859663347721176`*^9}, {
+   3.685966693945888*^9, 3.6859668086913943`*^9}, {3.6859668445200386`*^9, 
+   3.6859668529889107`*^9}, {3.685971714937187*^9, 3.685971724162756*^9}, {
+   3.6859770961790075`*^9, 3.685977098206444*^9}, 
+   3.6859773000213184`*^9},ExpressionUUID->"637f60b0-9e36-4f05-82b4-\
+a3aff671bbcb"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {}, 
+    Typeset`size$$ = {978., {298.5, 303.5}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Grid[{{
+          BarChart3D[
+           Map[Reverse, 
+            $CellContext`data["AtomicRadius"]], Method -> {"Canvas" -> None}, 
+           FaceGrids -> None, ChartLayout -> "Grid", ChartElementFunction -> 
+           "Cube", ViewAngle -> Pi/4, ViewPoint -> Dynamic[$CellContext`vp], 
+           ImageSize -> {600, 350}, AxesEdge -> {None, None, {1, -1}}, 
+           PerformanceGoal -> "Quality", AxesLabel -> Automatic], 
+          Grid[{{
+             DiscretePlot[
+              Part[
+               Apply[List, 
+                ElementData[$CellContext`num, "AtomicRadius"]], 
+               1], {$CellContext`num, 
+               Join[
+                Map[ElementData[#, "AtomicNumber"]& , 
+                 Select[
+                  ElementData[], And[
+                  ElementData[#, "Period"] == 
+                   ElementData[$CellContext`elem, "Period"], 
+                   Not[
+                    MatchQ[
+                    ElementData[#, "Period"], 
+                    Missing[
+                    BlankNullSequence[]]]]]& ]], {
+                 ElementData[$CellContext`elem, "AtomicNumber"]}]}, ImageSize -> 
+              Medium, PlotLabel -> 
+              StringJoin["Atomic Radius of elements across the period of ", 
+                ElementData[$CellContext`elem, "Name"]], 
+              AxesLabel -> {"Atomic Number", "Atomic Radius (pm)"}]}, {
+             DiscretePlot[
+              Part[
+               Apply[List, 
+                ElementData[$CellContext`num, "AtomicRadius"]], 
+               1], {$CellContext`num, 
+               Join[
+                Map[ElementData[#, "AtomicNumber"]& , 
+                 Select[
+                  ElementData[], And[
+                  ElementData[#, "Group"] == 
+                   ElementData[$CellContext`elem, "Group"], 
+                   Not[
+                    MatchQ[
+                    ElementData[#, "Group"], 
+                    Missing[
+                    BlankNullSequence[]]]]]& ]], {
+                 ElementData[$CellContext`elem, "AtomicNumber"]}]}, ImageSize -> 
+              Medium, PlotLabel -> 
+              StringJoin["Atomic Radius of elements down the group of ", 
+                ElementData[$CellContext`elem, "Name"]], 
+              AxesLabel -> {
+               "Atomic Number", 
+                "Atomic Radius (pm)"}]}}]}, {$CellContext`customColorData, 
+          Grid[{{
+             Style[
+              ElementData[$CellContext`elem, "Name"], 48], 
+             Style[
+              If[
+               Not[
+                MissingQ[
+                 ElementData[$CellContext`elem, "AtomicRadius"]]], 
+               ElementData[$CellContext`elem, "AtomicRadius"], "NA"], 
+              36]}}]}}], "Specifications" :> {}, 
+      "Options" :> {
+       SynchronousUpdating -> False, SynchronousInitialization -> False}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{1025., {330., 335.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>(($CellContext`vp = {0, 1/5, 1}; $CellContext`elem = 
+       "H"; $CellContext`props = {"AtomicRadius"}; 
+      Map[($CellContext`data[#] = ReplaceAll[
+          Part[
+           ColorData["Atoms", "Image"], 1, 2], {{
+             Pattern[$CellContext`color, 
+              Blank[]], 
+             Rectangle[
+              BlankSequence[]], 
+             Inset[
+              Style[
+               Pattern[$CellContext`element, 
+                Blank[]], 
+               BlankSequence[]], 
+              BlankNullSequence[]]} :> With[{$CellContext`value = Mean[
+                Flatten[{
+                  ElementData[$CellContext`element, #]}]]}, 
+             If[
+              MatchQ[$CellContext`value, 
+               Missing[
+                Blank[]]], 
+              Labeled[
+               Style[
+                Tooltip[0, 
+                 ReplaceAll[$CellContext`value, Missing[
+                    Pattern[$CellContext`s, 
+                    Blank[]]] -> $CellContext`s]]], 
+               
+               Style[$CellContext`element, "Label", 12, Background -> 
+                Opacity[0.5, White], Bold], Above], 
+              Labeled[
+               Style[$CellContext`value, $CellContext`color], 
+               
+               Style[$CellContext`element, "Label", 12, Background -> 
+                Opacity[0.5, White], Bold], Above]]], {} -> 
+           None}])& , $CellContext`props]; $CellContext`customColorData = 
+       ReplaceAll[
+         ColorData["Atoms", "Panel"], {"MouseClicked" :> NotebookWrite[
+             InputNotebook[], 
+             ToBoxes[
+              Part[Pattern[$CellContext`e, 
+                 Blank[]] -> RGBColor[
+                 Blank[], 
+                 Blank[], 
+                 Blank[]], 
+               Blank[]]]]} -> {
+          "MouseClicked" :> ($CellContext`elem = $CellContext`e)}]; Null); 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->False,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.6859773148708706`*^9},ExpressionUUID->"4b346ef7-af4f-42b9-b8a8-\
+20ff9436db7d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Note", "Subsubsection",
+ CellChangeTimes->{{3.6859680088251963`*^9, 
+  3.6859680093098803`*^9}},ExpressionUUID->"7ccd6d15-22f2-4e0f-b4d6-\
+dee1bf2526eb"],
+
+Cell["\<\
+Enable dynamics to access the program. Viewing this program online will \
+inhibit certain interactivity with the app.\
+\>", "Text",
+ CellChangeTimes->{{3.685968013191025*^9, 
+  3.685968087303076*^9}},ExpressionUUID->"f14cfb01-b99f-4206-80ed-\
+b7df7caced60"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Instructions", "Subsubsection",
+ CellChangeTimes->{{3.6859632147628145`*^9, 
+  3.6859632159505186`*^9}},ExpressionUUID->"fdda0df5-d7fe-496c-b2ef-\
+a5a6c3bd38dc"],
+
+Cell["\<\
+Click on the elements on the periodic table at the bottom left corner of the \
+app to explore their atomic radius.\
+\>", "Text",
+ CellChangeTimes->{{3.6859631281086636`*^9, 3.6859631782104974`*^9}, {
+   3.6859632279550123`*^9, 3.6859632434116306`*^9}, {3.6859675777660737`*^9, 
+   3.6859675790473413`*^9}, {3.6859676361575413`*^9, 3.6859676729705935`*^9}, 
+   3.685968017731705*^9},ExpressionUUID->"581300ec-ef90-48fd-8604-\
+03f883d1824f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Picometer (pm)", "Subsubsection",
+ CellChangeTimes->{{3.6859632646812687`*^9, 3.685963266352914*^9}, {
+  3.6859633374632215`*^9, 3.685963337977783*^9}, {3.6859666536813874`*^9, 
+  3.6859666600252314`*^9}},ExpressionUUID->"63557893-406f-4b65-877f-\
+17da55ed48cc"],
+
+Cell[TextData[{
+ "A picometer (pm) is extremely small. Look at the tip of a mechanical \
+pencil: that is about a millimeter thick. Now look at a strand of hair: that \
+is ten times thinner than a millimeter. Finally, imagine something that is ",
+ Cell[BoxData[
+  FormBox["1000000000", TraditionalForm]],ExpressionUUID->
+  "c1efd15f-2f9a-44ec-bd80-b7982047a20e"],
+ " times smaller than a millimeter and you have arrived at a picometer."
+}], "Text",
+ CellChangeTimes->{{3.6859633402166047`*^9, 3.6859634869793167`*^9}, {
+   3.6859635406557007`*^9, 3.685963546022541*^9}, 3.6859657081535964`*^9, 
+   3.685966293769105*^9, {3.685966393123041*^9, 3.6859663969987636`*^9}, {
+   3.6859665505863976`*^9, 3.6859666123526845`*^9}, {3.6859717654391403`*^9, 
+   3.685971768628477*^9}},ExpressionUUID->"eed44251-fc03-4646-85bc-\
+e889fc572ecd"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Patterns", "Subsubsection",
+ CellChangeTimes->{{3.685967003940507*^9, 
+  3.6859670090030823`*^9}},ExpressionUUID->"502e1d17-4121-4e97-be57-\
+3437044614f2"],
+
+Cell["\<\
+Notice that as we go across a row (period), the atomic radius decreases, and \
+as we go down a column (group), the atomic radius increases.\
+\>", "Text",
+ CellChangeTimes->{{3.6859671591290083`*^9, 
+  3.685967191473245*^9}},ExpressionUUID->"a76845f5-f541-4813-8080-\
+116f25dbd6c3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Why?", "Subsubsection",
+ CellChangeTimes->{{3.685967344559574*^9, 
+  3.685967349544021*^9}},ExpressionUUID->"fd2ce923-cafc-4626-acbd-\
+8a12af49ff59"],
+
+Cell["\<\
+As we move across a period, the number of protons increases (atomic number \
+increases) and makes a stronger attraction between the negatively charged \
+electrons and the positively charged protons. So the atoms become more \
+compressed and smaller as we move across a period. When we move down a group, \
+atoms gain orbitals, meaning they get bigger as we move down a group.\
+\>", "Text",
+ CellChangeTimes->{{3.685967358544171*^9, 
+  3.6859675620470943`*^9}},ExpressionUUID->"d12a575e-fa4b-49aa-a219-\
+7628954d6bfe"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1366, 725},
+WindowMargins->{{-8, Automatic}, {Automatic, 30}},
+FrontEndVersion->"11.2 for Linux x86 (64-bit) (September 10, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 168, 3, 98, "Title",ExpressionUUID->"22a75b91-ede4-4b5c-abfb-20880e3e6ec6"],
+Cell[CellGroupData[{
+Cell[773, 29, 19933, 383, 1343, "Input",ExpressionUUID->"637f60b0-9e36-4f05-82b4-a3aff671bbcb"],
+Cell[20709, 414, 6085, 141, 684, "Output",ExpressionUUID->"4b346ef7-af4f-42b9-b8a8-20ff9436db7d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26831, 560, 159, 3, 45, "Subsubsection",ExpressionUUID->"7ccd6d15-22f2-4e0f-b4d6-dee1bf2526eb"],
+Cell[26993, 565, 267, 6, 35, "Text",ExpressionUUID->"f14cfb01-b99f-4206-80ed-b7df7caced60"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27297, 576, 167, 3, 45, "Subsubsection",ExpressionUUID->"fdda0df5-d7fe-496c-b2ef-a5a6c3bd38dc"],
+Cell[27467, 581, 449, 8, 35, "Text",ExpressionUUID->"581300ec-ef90-48fd-8604-03f883d1824f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27953, 594, 268, 4, 45, "Subsubsection",ExpressionUUID->"63557893-406f-4b65-877f-17da55ed48cc"],
+Cell[28224, 600, 830, 14, 58, "Text",ExpressionUUID->"eed44251-fc03-4646-85bc-e889fc572ecd"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29091, 619, 161, 3, 45, "Subsubsection",ExpressionUUID->"502e1d17-4121-4e97-be57-3437044614f2"],
+Cell[29255, 624, 291, 6, 35, "Text",ExpressionUUID->"a76845f5-f541-4813-8080-116f25dbd6c3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29583, 635, 155, 3, 45, "Subsubsection",ExpressionUUID->"fd2ce923-cafc-4626-acbd-8a12af49ff59"],
+Cell[29741, 640, 527, 9, 81, "Text",ExpressionUUID->"d12a575e-fa4b-49aa-a219-7628954d6bfe"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
